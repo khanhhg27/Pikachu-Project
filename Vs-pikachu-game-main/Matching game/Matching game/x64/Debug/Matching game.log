@@ -1,0 +1,5 @@
+﻿  main.cpp
+  menu.cpp
+E:\Vs-pikachu-game-main\Matching game\Matching game\menu.cpp(248,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Matching game.vcxproj -> E:\Vs-pikachu-game-main\Matching game\x64\Debug\Matching game.exe
