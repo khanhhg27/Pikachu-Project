@@ -66,27 +66,53 @@ void GamePlay::deleteI(Cell** pBoard, Cell cell_1, Cell cell_2) {
 	int x2 = (tmp_2.x_console * 10) + 5;
 	int y2 = (tmp_2.y_console * 4) + 2;
 	if (x1 == x2) {
-		Console::gotoXY(x1, y1 + 1);
-		putchar(32);
-		for (int i = y1 + 2; i <= y2 - 2; i++) {
-			Console::gotoXY(x1, i);
+		if (y1 < y2){
+			Console::gotoXY(x1, y1 + 1);
 			putchar(32);
+			for (int i = y1 + 2; i <= y2 - 2; i++) {
+				Console::gotoXY(x1, i);
+				putchar(32);
+			}
+			Console::gotoXY(x2, y2 - 1);
+			putchar(32);
+			return;
 		}
-		Console::gotoXY(x2, y2 - 1);
-		putchar(32);
-		return;
+		else{
+			Console::gotoXY(x1, y1 - 1);
+			putchar(32);
+			for (int i = y1 - 2; i >= y2 + 2; i--) {
+				Console::gotoXY(x1, i);
+				putchar(32);
+			}
+			Console::gotoXY(x2, y2 + 1);
+			putchar(32);
+			return;
+		}
 	}
 	//========================================================================//
 	if (y1 == y2) {
-		Console::gotoXY(x1 + 1, y1);
-		putchar(32);
-		for (int i = x1 + 2; i <= x2 - 2; i++) {
-			Console::gotoXY(i, y1);
+		if (x1 < x2){
+			Console::gotoXY(x1 + 1, y1);
 			putchar(32);
+			for (int i = x1 + 2; i <= x2 - 2; i++) {
+				Console::gotoXY(i, y1);
+				putchar(32);
+			}
+			Console::gotoXY(x2 - 1, y2);
+			putchar(32);
+			return;
 		}
-		Console::gotoXY(x2 - 1, y2);
-		putchar(32);
-		return;
+		else{
+			Console::gotoXY(x1 - 1, y1);
+			putchar(32);
+			for (int i = x1 - 2; i >= x2 + 2; i--) {
+				Console::gotoXY(i, y1);
+				putchar(32);
+			}
+			Console::gotoXY(x2 + 1, y2);
+			putchar(32);
+			return;
+		}
 	}
 }
 
