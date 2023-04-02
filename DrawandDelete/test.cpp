@@ -7,27 +7,53 @@ void GamePlay::drawI(Cell** pBoard, Cell cell_1, Cell cell_2) {
 	int x2 = (tmp_2.x_console * 10) + 5;
 	int y2 = (tmp_2.y_console * 4) + 2;
 	if (x1 == x2) {
-		Console::gotoXY(x1, y1 + 1);
-		putchar(30);
-		for (int i = y1 + 2; i <= y2 - 2; i++) {
-			Console::gotoXY(x1, i);
-			putchar(179);
+		if (y1 < y2){
+			Console::gotoXY(x1, y1 + 1);
+			putchar(30);
+			for (int i = y1 + 2; i <= y2 - 2; i++) {
+				Console::gotoXY(x1, i);
+				putchar(179);
+			}
+			Console::gotoXY(x2, y2 - 1);
+			putchar(31);
+			return;
 		}
-		Console::gotoXY(x2, y2 - 1);
-		putchar(31);
-		return;
+		else{
+			Console::gotoXY(x1, y1 - 1);
+			putchar(31);
+			for (int i = y1 - 2; i >= y2 + 2; i--) {
+				Console::gotoXY(x1, i);
+				putchar(179);
+			}
+			Console::gotoXY(x2, y2 + 1);
+			putchar(30);
+			return;
+		}
 	}
 	//========================================================================//
 	if (y1 == y2) {
-		Console::gotoXY(x1 + 1, y1);
-		putchar(17);
-		for (int i = x1 + 2; i <= x2 - 2; i++) {
-			Console::gotoXY(i, y1);
-			putchar(45);
+		if (x1 < x2){
+			Console::gotoXY(x1 + 1, y1);
+			putchar(17);
+			for (int i = x1 + 2; i <= x2 - 2; i++) {
+				Console::gotoXY(i, y1);
+				putchar(45);
+			}
+			Console::gotoXY(x2 - 1, y2);
+			putchar(16);
+			return;
 		}
-		Console::gotoXY(x2 - 1, y2);
-		putchar(16);
-		return;
+		else{
+			Console::gotoXY(x1 - 1, y1);
+			putchar(16);
+			for (int i = x1 - 2; i >= x2 + 2; i--) {
+				Console::gotoXY(i, y1);
+				putchar(45);
+			}
+			Console::gotoXY(x2 + 1, y2);
+			putchar(17);
+			return;
+		}
 	}
 }
 
