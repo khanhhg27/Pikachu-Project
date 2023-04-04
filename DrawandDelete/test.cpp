@@ -232,15 +232,15 @@ void Board::deleteL(Cell cell_1, Cell cell_C, Cell cell_2) {
 	if (xC < x1 && yC > y2) {
 		Console::gotoXY(x1 - 1, y1);
 		putchar(32);
-		for (int i = x1 - 2; i >= xC - 1; i--) {
+		for (int i = x1 - 2; i >= xC; i--) {
 			Console::gotoXY(i, y1);
 			putchar(32);
 		}
-		for (int i = yC; i >= y2 - 2; i--) {
+		for (int i = yC - 1; i >= y2 + 2; i--) {
 			Console::gotoXY(x2, i);
 			putchar(32);
 		}
-		Console::gotoXY(x2, y2 - 1);
+		Console::gotoXY(x2, y2 + 1);
 		putchar(32);
 		return;
 	}
